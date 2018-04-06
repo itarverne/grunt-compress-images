@@ -22,7 +22,7 @@ grunt.loadNpmTasks('grunt-compress-images');
 ## The "compress-images" task
 
 ### Overview
-In your project's Gruntfile, add a section named `compress-images` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `compressImages` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
