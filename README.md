@@ -3,7 +3,9 @@
 > The plugin to use the compress-images package
 
 ## Getting Started
-This plugin requires Grunt `~1.0.1`
+This plugin requires : 
+- Grunt `~1.0.1`
+- [compress-images](https://www.npmjs.com/package/compress-images) npm package
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -24,9 +26,9 @@ In your project's Gruntfile, add a section named `compress-images` to the data o
 
 ```js
 grunt.initConfig({
-  compress_images: {
+  compressImages: {
     prod : {
-      input_path: 'src/img/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}',
+      input_path: 'src/img/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}',
       output_path: 'build/img/',
       options: {
         compress_force: false, 
@@ -34,7 +36,7 @@ grunt.initConfig({
         autoupdate: true
       },
       jpg: {
-        engine: 'jpegtran',
+        engine: 'mozjpeg',
         command: ['-quality', '60']
       },
       png: {
