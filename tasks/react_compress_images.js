@@ -8,15 +8,14 @@
 
 'use strict';
 
+var compress_images = require('compress-images');
+
 module.exports = function(grunt) {
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
-
   grunt.registerMultiTask('compress_images', 'The plugin to use the compress-images package', function() {
+
     var target = this.target;
 
-    var compress_images = require('compress-images');
     var done = this.async();
 
     compress_images(
@@ -47,13 +46,11 @@ module.exports = function(grunt) {
           command: grunt.config('compress_images.' + target + '.gif.command')
         }
       }, function(err){
-        grunt.log.writeln('End img optim');
         done();
-        if(err == null)
-          return true;
-        return false;
+        return true;
       }
     );
+
   });
 
 };
