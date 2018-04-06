@@ -12,38 +12,38 @@ var compress_images = require('compress-images');
 
 module.exports = function(grunt) {
 
-  grunt.registerMultiTask('compress_images', 'The plugin to use the compress-images package', function() {
+  grunt.registerMultiTask('compressImages', 'The plugin to use the compress-images package', function() {
 
     var target = this.target;
 
     var done = this.async();
 
     compress_images(
-      grunt.config('compress_images.' + target + '.input_path'), 
-      grunt.config('compress_images.' + target + '.output_path'), {
-        compress_force: grunt.config('compress_images.' + target + '.options.compress_force'), 
-        statistic: grunt.config('compress_images.' + target + '.options.statistic'), 
-        autoupdate: grunt.config('compress_images.' + target + '.options.autoupdate')
+      grunt.config('compressImages.' + target + '.input_path'), 
+      grunt.config('compressImages.' + target + '.output_path'), {
+        compress_force: grunt.config('compressImages.' + target + '.options.compress_force'), 
+        statistic: grunt.config('compressImages.' + target + '.options.statistic'), 
+        autoupdate: grunt.config('compressImages.' + target + '.options.autoupdate')
       }, 
       false, {
         jpg: {
-          engine: grunt.config('compress_images.' + target + '.jpg.engine'), 
-          command: grunt.config('compress_images.' + target + '.jpg.command')
+          engine: grunt.config('compressImages.' + target + '.jpg.engine'), 
+          command: grunt.config('compressImages.' + target + '.jpg.command')
         }
       }, {
         png: {
-          engine: grunt.config('compress_images.' + target + '.png.engine'), 
-          command: grunt.config('compress_images.' + target + '.png.command')
+          engine: grunt.config('compressImages.' + target + '.png.engine'), 
+          command: grunt.config('compressImages.' + target + '.png.command')
         }
       }, {
         svg: {
-          engine: grunt.config('compress_images.' + target + '.svg.engine'),
-          command: grunt.config('compress_images.' + target + '.svg.command')
+          engine: grunt.config('compressImages.' + target + '.svg.engine'),
+          command: grunt.config('compressImages.' + target + '.svg.command')
         }          
       }, {
         gif: {
-          engine: grunt.config('compress_images.' + target + '.gif.engine'), 
-          command: grunt.config('compress_images.' + target + '.gif.command')
+          engine: grunt.config('compressImages.' + target + '.gif.engine'), 
+          command: grunt.config('compressImages.' + target + '.gif.command')
         }
       }, function(err){
         done();
