@@ -24,9 +24,9 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    compress_images: {
+    compressImages: {
       prod : {
-        input_path: 'src/img/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}',
+        input_path: 'src/img/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}',
         output_path: 'build/img/',
         options: {
           compress_force: false, 
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           autoupdate: true
         },
         jpg: {
-          engine: 'jpegtran',
+          engine: 'mozjpeg',
           command: ['-quality', '60']
         },
         png: {
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
         }
       },
       test : {
-        input_path: 'test/src/img/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}',
+        input_path: 'test/src/img/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}',
         output_path: 'test/build/img/',
         options: {
           compress_force: false, 
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
           autoupdate: true
         },
         jpg: {
-          engine: 'jpegtran',
+          engine: 'mozjpeg',
           command: ['-quality', '60']
         },
         png: {
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  grunt.registerTask('test', ['compress-images:test', 'nodeunit']);
+  grunt.registerTask('test', ['compressImages:test', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
