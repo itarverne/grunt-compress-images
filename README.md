@@ -2,6 +2,10 @@
 
 > The plugin to use the compress-images package
 
+[![Build Status](https://travis-ci.org/itarverne/grunt-compress-images.svg?branch=master)](https://travis-ci.org/itarverne/grunt-compress-images)[![Maintainability](https://api.codeclimate.com/v1/badges/0b3aeb4db7b62969681b/maintainability)](https://codeclimate.com/github/itarverne/grunt-compress-images/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/0b3aeb4db7b62969681b/test_coverage)](https://codeclimate.com/github/itarverne/grunt-compress-images/test_coverage)
+
+![npm](https://nodei.co/npm/grunt-compress-images.png?compact=true)
+
 ## Getting Started
 This plugin requires : 
 - Grunt `~1.0.1`

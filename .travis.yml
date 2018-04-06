@@ -1,0 +1,39 @@
+language: node_js
+
+node_js:
+  - "8"
+  - "9"
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=$CODECLIMATE_REPORTER_ID
+
+branches:
+  except:
+  - experimental
+
+cache:
+  directories:
+  - "node_modules"
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  - gem install travis
+  - travis login --github-token $NPM_API_KEY
+  - travis encrypt $NPM_API_KEY --add deploy.api_key
+
+script:
+  - npm test
+
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: $NPM_EMAIL
+  api_key: $NPM_API_KEY 
+  on:
+    tags: true
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
