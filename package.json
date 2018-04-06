@@ -1,7 +1,8 @@
 {
   "name": "grunt-compress-images",
   "description": "The plugin to use the compress-images package",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "license": "MIT",
   "homepage": "https://github.com/itarverne/grunt-compress-images.git",
   "author": {
     "name": "David RIGAUDIE",
@@ -15,12 +16,6 @@
   "bugs": {
     "url": "https://github.com/itarverne/grunt-compress-images/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/itarverne/grunt-compress-images/blob/master/LICENSE"
-    }
-  ],
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -35,6 +30,7 @@
     "compress-images": "^1.2.0"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "compress-images"
   ]
 }
