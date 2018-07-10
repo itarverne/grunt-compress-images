@@ -1,7 +1,7 @@
 {
   "name": "grunt-compress-images",
   "description": "The plugin to use the compress-images package",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "homepage": "https://github.com/itarverne/grunt-compress-images.git",
   "author": {
