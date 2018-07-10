@@ -46,7 +46,7 @@ module.exports = function(grunt) {
           command: grunt.config('compressImages.' + target + '.gif.command')
         }
       }, function(err){
-        done();
+        // done();
         return true;
       }
     );
