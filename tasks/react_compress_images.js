@@ -18,6 +18,17 @@ module.exports = function(grunt) {
 
     var done = this.async();
 
+    var incr = 0;
+    var max_incr = 5;
+    var timer = setInterval(function(){
+    incr++;
+    console.log(max_incr, incr)
+    if(incr > 2*max_incr){
+      done()
+      clearInterval(timer);
+    }
+    },1000);
+
     compress_images(
       grunt.config('compressImages.' + target + '.input_path'), 
       grunt.config('compressImages.' + target + '.output_path'), {
@@ -46,11 +57,13 @@ module.exports = function(grunt) {
           command: grunt.config('compressImages.' + target + '.gif.command')
         }
       }, function(err){
-        // done();
+        if(max_incr < incr)
+          max_incr = incr;
+        incr = 0;
+      
         return true;
       }
     );
-
   });
 
 };
