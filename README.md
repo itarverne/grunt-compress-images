@@ -37,7 +37,8 @@ grunt.initConfig({
       options: {
         compress_force: false, 
         statistic: true, 
-        autoupdate: true
+        autoupdate: true,
+        pathLog: './log/lib/compress-images'
       },
       jpg: {
         engine: 'mozjpeg',

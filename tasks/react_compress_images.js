@@ -21,12 +21,11 @@ module.exports = function(grunt) {
     var incr = 0;
     var max_incr = 5;
     var timer = setInterval(function(){
-    incr++;
-    console.log(max_incr, incr)
-    if(incr > 2*max_incr){
-      done()
-      clearInterval(timer);
-    }
+      incr++;
+      if(incr > 2*max_incr){
+        done()
+        clearInterval(timer);
+      }
     },1000);
 
     compress_images(
@@ -34,7 +33,8 @@ module.exports = function(grunt) {
       grunt.config('compressImages.' + target + '.output_path'), {
         compress_force: grunt.config('compressImages.' + target + '.options.compress_force'), 
         statistic: grunt.config('compressImages.' + target + '.options.statistic'), 
-        autoupdate: grunt.config('compressImages.' + target + '.options.autoupdate')
+        autoupdate: grunt.config('compressImages.' + target + '.options.autoupdate'),
+        pathLog: grunt.config('compressImages.' + target + '.options.pathLog')
       }, 
       false, {
         jpg: {
@@ -57,10 +57,11 @@ module.exports = function(grunt) {
           command: grunt.config('compressImages.' + target + '.gif.command')
         }
       }, function(err){
-        if(max_incr < incr)
-          max_incr = incr;
-        incr = 0;
-      
+        if(err == null){
+          if(max_incr < incr)
+            max_incr = incr;
+          incr = 0;
+        }
         return true;
       }
     );
